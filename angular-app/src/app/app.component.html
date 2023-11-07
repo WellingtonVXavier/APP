@@ -1,0 +1,35 @@
+<app-navbar [Drawer]="drawer"></app-navbar>
+
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+
+        <!-- lista do menu -->
+        <mat-list role="list">
+            <mat-list-item *ngIf="isAuth" (click)="drawer.toggle()" routerLink="home" role="listitem">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+                <span> Home</span>
+            </mat-list-item>
+
+            <mat-list-item *ngIf="isAuth" (click)="drawer.toggle()" routerLink="contact" role="listitem">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="call"></mat-icon>
+                <span> Contact</span>
+            </mat-list-item>
+
+            <mat-list-item (click)="drawer.toggle()" routerLink="login" role="listitem">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login"></mat-icon>
+                <span> Login</span>
+            </mat-list-item>
+
+            <mat-list-item *ngIf="isAuth" (click)="drawer.toggle()" routerLink="user" role="listitem">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+                <span> User</span>
+            </mat-list-item>
+        </mat-list>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+
+</mat-drawer-container>
